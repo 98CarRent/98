@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>98CarRent - แผงจัดการ</title>
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="admin-page">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <div class="top-contact">
+                <span><i class="fas fa-shield-alt"></i> <span data-i18n="admin_panel">แผงจัดการ 98CarRent</span></span>
+            </div>
+            <div class="top-controls">
+                <a href="index.html" class="top-btn" data-i18n="view_site"><i class="fas fa-eye"></i> <span data-i18n="view_site_text">ดูเว็บ</span></a>
+                <button class="top-btn" onclick="exportData()" title="Export ข้อมูลเป็นไฟล์ JSON"><i class="fas fa-file-export"></i> <span data-i18n="export_btn">Export ข้อมูล</span></button>
+                <button id="langBtn" onclick="toggleLang()">🇹🇭 TH / 🇬🇧 EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header admin-header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo หน้าเว็บ.jpg" alt="98CarRent Logo" class="logo-img">
+                <div>
+                    <h1 data-i18n="admin_dashboard">แผงจัดการ</h1>
+                    <p data-i18n="subtitle">รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ</p>
+                </div>
+            </div>
+            <nav class="main-nav admin-nav" id="adminNav">
+                <a href="javascript:void(0)" class="active" data-tab="carsTab" data-i18n="nav_gallery">รถเช่า</a>
+                <a href="javascript:void(0)" data-tab="tourismTab" data-i18n="nav_tourism">สถานที่ท่องเที่ยว</a>
+                <a href="javascript:void(0)" data-tab="reviewsTab" data-i18n="nav_review">รีวิว</a>
+            </nav>
+            <button class="hamburger" onclick="document.getElementById('adminNav').classList.toggle('show')">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <!-- CARS TAB -->
+        <section class="admin-tab" id="carsTab">
+            <div class="admin-tab-header">
+                <h2 data-i18n="admin_cars">จัดการรถเช่า</h2>
+                <button class="btn btn-primary" onclick="openCarModal()" data-i18n="add_car">+ เพิ่มรถเช่า</button>
+            </div>
+            <div class="admin-list" id="adminCarList"></div>
+        </section>
+
+        <!-- TOURISM TAB -->
+        <section class="admin-tab" id="tourismTab" style="display:none">
+            <div class="admin-tab-header">
+                <h2 data-i18n="admin_tourism">จัดการสถานที่ท่องเที่ยว</h2>
+                <button class="btn btn-primary" onclick="openTourismModal()" data-i18n="add_tourism">+ เพิ่มสถานที่ท่องเที่ยว</button>
+            </div>
+            <div class="admin-list" id="adminTourismList"></div>
+        </section>
+
+        <!-- REVIEWS TAB -->
+        <section class="admin-tab" id="reviewsTab" style="display:none">
+            <div class="admin-tab-header">
+                <h2 data-i18n="admin_reviews">จัดการรีวิว</h2>
+                <button class="btn btn-primary" onclick="openReviewModal()" data-i18n="add_review">+ เพิ่มรีวิว</button>
+            </div>
+            <div class="admin-list" id="adminReviewList"></div>
+        </section>
+    </main>
+
+    <!-- MODALS (same as before) -->
+    <div class="modal-overlay" id="carModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-i18n="add_car">เพิ่มรถเช่า</h3>
+                <button class="close-btn" onclick="closeCarModal()">&times;</button>
+            </div>
+            <form id="carForm" onsubmit="saveCar(event)">
+                <input type="hidden" id="carEditId">
+                <label data-i18n="label_car_name">ชื่อรถ</label>
+                <input type="text" id="carName" required>
+                <label data-i18n="label_car_desc">รายละเอียด</label>
+                <textarea id="carDesc" rows="3"></textarea>
+                <div class="price-fields">
+                    <div>
+                        <label data-i18n="label_price_daily">ราคารายวัน (บาท)</label>
+                        <input type="number" id="carPriceDaily" required>
+                    </div>
+                    <div>
+                        <label data-i18n="label_price_weekly">ราคารายสัปดาห์ (บาท)</label>
+                        <input type="number" id="carPriceWeekly" required>
+                    </div>
+                    <div>
+                        <label data-i18n="label_price_monthly">ราคารายเดือน (บาท)</label>
+                        <input type="number" id="carPriceMonthly" required>
+                    </div>
+                </div>
+                <label data-i18n="label_car_driver">เช่าพร้อมคนขับ</label>
+                <select id="carDriver">
+                    <option value="no" data-i18n="driver_self">ขับเอง</option>
+                    <option value="yes" data-i18n="driver_with">พร้อมคนขับ</option>
+                </select>
+                <label data-i18n="label_car_img">รูปภาพ (URL)</label>
+                <input type="url" id="carImg" placeholder="https://...">
+                <label data-i18n="label_car_file">หรืออัพโหลดไฟล์</label>
+                <input type="file" id="carFile" accept="image/*" onchange="handleFileUpload(this, 'carImg')">
+                <div id="carImgPreview" class="img-preview"></div>
+                <button type="submit" class="btn btn-primary" data-i18n="btn_save">บันทึก</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="tourismModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-i18n="add_tourism">เพิ่มสถานที่ท่องเที่ยว</h3>
+                <button class="close-btn" onclick="closeTourismModal()">&times;</button>
+            </div>
+            <form id="tourismForm" onsubmit="saveTourism(event)">
+                <input type="hidden" id="tourismEditId">
+                <label data-i18n="label_tourism_name">ชื่อสถานที่</label>
+                <input type="text" id="tourismName" required>
+                <label data-i18n="label_tourism_desc">รายละเอียด</label>
+                <textarea id="tourismDesc" rows="3"></textarea>
+                <label data-i18n="label_tourism_province">จังหวัด</label>
+                <select id="tourismProvince">
+                    <option value="mukdahan" data-i18n="tab_mukdahan">มุกดาหาร</option>
+                    <option value="nakhonphanom" data-i18n="tab_nakhonphanom">นครพนม</option>
+                </select>
+                <label data-i18n="label_tourism_lat">ละติจูด</label>
+                <input type="number" step="any" id="tourismLat" placeholder="16.5823">
+                <label data-i18n="label_tourism_lng">ลองจิจูด</label>
+                <input type="number" step="any" id="tourismLng" placeholder="104.5214">
+                <label data-i18n="label_tourism_img">รูปภาพ (URL)</label>
+                <input type="url" id="tourismImg" placeholder="https://...">
+                <label data-i18n="label_tourism_file">หรืออัพโหลดไฟล์</label>
+                <input type="file" id="tourismFile" accept="image/*" onchange="handleFileUpload(this, 'tourismImg')">
+                <div id="tourismImgPreview" class="img-preview"></div>
+                <button type="submit" class="btn btn-primary" data-i18n="btn_save">บันทึก</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-i18n="add_review">เพิ่มรีวิว</h3>
+                <button class="close-btn" onclick="closeReviewModal()">&times;</button>
+            </div>
+            <form id="reviewForm" onsubmit="saveReview(event)">
+                <input type="hidden" id="reviewEditId">
+                <label data-i18n="label_review_name">ชื่อผู้รีวิว</label>
+                <input type="text" id="reviewName" required>
+                <label data-i18n="label_review_star">คะแนน</label>
+                <div class="star-input" id="starInput">
+                    <span onclick="setStar(1)">★</span>
+                    <span onclick="setStar(2)">★</span>
+                    <span onclick="setStar(3)">★</span>
+                    <span onclick="setStar(4)">★</span>
+                    <span onclick="setStar(5)">★</span>
+                </div>
+                <label data-i18n="label_review_text">ความคิดเห็น</label>
+                <textarea id="reviewText" rows="4" required></textarea>
+                <label data-i18n="label_review_img">รูปภาพ (URL)</label>
+                <input type="url" id="reviewImg" placeholder="https://...">
+                <label data-i18n="label_review_file">หรืออัพโหลดไฟล์</label>
+                <input type="file" id="reviewFile" accept="image/*" onchange="handleFileUpload(this, 'reviewImg')">
+                <div id="reviewImgPreview" class="img-preview"></div>
+                <button type="submit" class="btn btn-primary" data-i18n="btn_save">บันทึก</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastBox"></div>
+    <script src="script.js"></script>
+</body>
+</html>

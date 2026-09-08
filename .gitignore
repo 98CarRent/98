@@ -1,0 +1,7 @@
+# Conversation notes - not part of the website
+prompt ai.txt
+
+# OS / editor files
+Thumbs.db
+.DS_Store
+*.log

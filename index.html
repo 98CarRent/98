@@ -3,385 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ | 98CarRent</title>
-    <style>
-        /* ตั้งค่าพื้นฐาน */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Prompt';
-        }
-        body {
-    background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)), url('BG4.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #fff; /* ปรับสีตัวหนังสือให้ตัดกับพื้นหลัง */
-}
-        
-        /* ส่วนหัวเว็บไซต์: ใช้ภาพพื้นหลังรวมที่เที่ยวมุกดาหาร-นครพนม 
-           พร้อมซ้อน Layer สีดำจางๆ (Linear Gradient) เพื่อให้ตัวหนังสือสีขาว/ทอง เด่นชัดอ่านง่าย 
-        */
-        header {
-		
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)), url('BG4.png');
-			background-attachment: fixed; /* ทำให้พื้นหลังนิ่งเวลาสcroll */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #ffffff;
-            text-align: center;
-            padding: 4rem 1rem; /* เพิ่มพื้นที่แนวตั้งให้โชว์ภาพวิวพื้นหลัง */
-			linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80))
-        }
-        header h1 {
-            font-size: 3.2rem;
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-        }
-        header p {
-            color: #ffc107;
-            font-size: 1.4rem;
-            font-weight: 500;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        }
-
-        /* ส่วนจัดวางเนื้อหา (Container) */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            font-size: 2.2rem;
-            color: #1a1a1a;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #ffc107;
-            margin: 12px auto 0;
-            border-radius: 2px;
-        }
-
-        /* ระบบ Grid สำหรับการ์ดรถ */
-        .car-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        /* การ์ดรถยนต์ */
-        .car-card {
-            background: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        .car-card:hover {
-            transform: translateY(-5px);
-        }
-        .car-image {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
-            /* คุณสามารถเปลี่ยนสีพื้นหลังหรือใส่รูปภาพจริงในแท็ก img ภายหลังได้ */
-        }
-        .car-details {
-            padding: 1.5rem;
-        }
-        .car-name {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-        .car-specs {
-            list-style: none;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .car-specs li {
-            margin-bottom: 0.3rem;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 0.3rem;
-        }
-        .price-tag {
-            font-size: 1.3rem;
-            color: #e63946;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .price-tag span {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: normal;
-        }
-        .btn-booking {
-            display: block;
-            text-align: center;
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 0.7rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        .btn-booking:hover {
-            background-color: #ffc107;
-            color: #1a1a1a;
-        }
-
-        /* ฟอร์มจอง/ติดต่อ */
-        .booking-form-section {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            background-color: #ffc107;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-submit:hover {
-            background-color: #e0a800;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
-    </style>
+    <title>98CarRent - รถเช่ามุกดาหาร</title>
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <h1>98CarRent</h1>
-        <p>รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ </p>
-		        <div style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem;">
-            <p style="margin-bottom: 1rem;">📞 โทร: <a href="tel:0615493256" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">061-5493256</a> , <a href="tel:0615474953" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">061-5474953</a></p>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                <a href="https://line.me/ti/p/~98carrental" target="_blank" style="background-color: #06C755; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🟢 Line: 98carrental
-                </a>
-                <a href="https://line.me/ti/p/~aoftaaof" target="_blank" style="background-color: #06C755; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🟢 Line: aoftaaof
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100066806268712" style="background-color: #1877F2; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🔵 Facebook Fanpage
-                </a>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <div class="top-contact">
+                <span><i class="fas fa-phone"></i> 061-5493256 , 061-5474953</span>
+                <span><i class="fab fa-line"></i> 98CarRent , aoftaaof</span>
+                <a href="https://www.facebook.com/profile.php?id=100066806268712" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-        
-        <h2 class="section-title">รถยนต์ที่พร้อมให้บริการ</h2>
-        
-        <div class="car-grid">
-            
-            <div class="car-card">
-                <img src="Mazda2.jpg" alt="Mazda2" style="width:100%; height:350px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">MAZDA2</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.5 ลิตร</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ (Auto)</strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>5 ที่นั่ง</strong></li>     
-                    </ul>
-                    <div class="price-tag">฿900 <span>/ วัน</span></div>
-					<div class="price-tag">฿5900 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿18,900 <span>/ เดือน</span></div>
+            <div class="top-controls">
+                <button id="langBtn" onclick="toggleLang()">🇹🇭 TH / 🇬🇧 EN</button>
+                <a href="admin.html" class="admin-link" data-i18n="admin_link"><i class="fas fa-lock"></i> <span data-i18n="admin_link_text">จัดการ</span></a>
+                <div class="theme-picker">
+                    <label><i class="fas fa-palette"></i></label>
+                    <input type="color" id="themeColor" value="#e65100" onchange="changeTheme(this.value)">
                 </div>
-            </div>
-			<div class="car-card">
-                <img src="honda jazz.jpg" alt="honda jazz" style="width:100%; height:200px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">HONDA JAZZ</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.5 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ (Auto)</strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>5 ที่นั่ง</strong></li>     
-                    </ul>
-                    <div class="price-tag">฿1,100 <span>/ วัน</span></div>
-					<div class="price-tag">฿7,000 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿27,000 <span>/ เดือน</span></div>
-                </div>
-            </div>
-			<div class="car-card">
-                <img src="Mazda CX-5.jpg" alt="Mazda CX-5" style="width:100%; height:350px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">MAZDA CX-5</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>2.0 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ (Auto)</strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>     
-                    </ul>
-                    <div class="price-tag">฿1,500 <span>/ วัน</span></div>
-					<div class="price-tag">฿9,990 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿39,990 <span>/ เดือน</span></div>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <img src="Mazda3.jpg" alt="Mazda3" style="width:100%; height:200px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">MAZDA3</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.8 ลิตร Turbo</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ (Auto)</strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>5 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿1,000 <span>/ วัน</span></div>
-					<div class="price-tag">฿6,650 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿25,000 <span>/ เดือน</span></div>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <img src="nissan juke.jpg" alt="nissan juke" style="width:100%; height:350px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">NISSAN JUKE</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.8 ลิตร ดีเซล</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ (4WD)</strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿1,000 <span>/ วัน</span></div>
-					<div class="price-tag">฿6,500 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿25,000 <span>/ เดือน</span></div>
-                </div>
-            </div>
-			<div class="car-card">
-                <img src="mitsubishi pajero.jpg" alt="mitsubishi pajero" style="width:100%; height:250px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">MITSUBISHI PAJERO</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>2.0 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ </strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿2,200 <span>/ วัน</span></div>
-					<div class="price-tag">฿14,500 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿55,000 <span>/ เดือน</span></div>
-                </div>
-            </div>
-			<div class="car-card">
-                <img src="nissan sylphy.jpg" alt="nissan sylphy" style="width:100%; height:350px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">NISSAN SYLPHY</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.4 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ </strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿980 <span>/ วัน</span></div>
-					<div class="price-tag">฿6,500 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿22,770 <span>/ เดือน</span></div>
-                </div>
-            </div>
-			<div class="car-card">
-                <img src="nissan sylphy2.jpg" alt="nissan sylphy" style="width:100%; height:350px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">NISSAN SYLPHY</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>1.4 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ </strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿1,000 <span>/ วัน</span></div>
-					<div class="price-tag">฿6,650 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿23,990 <span>/ เดือน</span></div>
-                </div>
-            </div>
-			<div class="car-card">
-                <img src="Toyota fortune.jpg" alt="Toyota fortune" style="width:100%; height:250px; object-fit:cover;">
-                <div class="car-details">
-                    <h3 class="car-name">TOYOTA FORTUNE</h3>
-                    <ul class="car-specs">
-                        <li><span>เครื่องยนต์:</span> <strong>2.0 ลิตร เบนซิน</strong></li>
-                        <li><span>ระบบเกียร์:</span> <strong>อัตโนมัติ </strong></li>
-                        <li><span>จำนวนที่นั่ง:</span> <strong>7 ที่นั่ง</strong></li>
-                    </ul>
-                    <div class="price-tag">฿2,300 <span>/ วัน</span></div>
-					<div class="price-tag">฿15,000 <span>/ สัปดาห์</span></div>
-					<div class="price-tag">฿60,000 <span>/ เดือน</span></div>
-                </div>
-            </div>
-
-        </div>
-
-        <h2 class="section-title" id="booking-form">ติดต่อจองรถเช่า</h2>
-        <div style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem;">
-            <p style="margin-bottom: 0.5rem; font-weight: bold;">98CarRent รถเช่ามุกดาหาร</p>
-            <p style="margin-bottom: 1rem;">📞 โทร: <a href="tel:0615493256" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">061-5493256</a> , <a href="tel:0615474953" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">061-5474953</a></p>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                <a href="https://line.me/ti/p/~98carrental" target="_blank" style="background-color: #06C755; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🟢 Line: 98carrental
-                </a>
-                <a href="https://line.me/ti/p/~aoftaaof" target="_blank" style="background-color: #06C755; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🟢 Line: aoftaaof
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100066806268712" style="background-color: #1877F2; color: white; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                    🔵 Facebook Fanpage
-                </a>
             </div>
         </div>
     </div>
 
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo หน้าเว็บ.jpg" alt="98CarRent Logo" class="logo-img">
+                <div>
+                    <h1>98CarRent</h1>
+                    <p data-i18n="subtitle">รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ</p>
+                </div>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="#home" class="active" data-i18n="nav_home">หน้าแรก</a>
+                <a href="#gallery" data-i18n="nav_gallery">รถเช่า</a>
+                <a href="#tourism" data-i18n="nav_tourism">สถานที่ท่องเที่ยว</a>
+                <a href="#review" data-i18n="nav_review">รีวิว</a>
+                <a href="#contact" data-i18n="nav_contact">ติดต่อ</a>
+            </nav>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Ticker -->
+    <div class="ticker">
+        <div class="ticker-track">
+            <span data-i18n="ticker1">🚗 เช่ารถรายวัน เริ่มต้นเพียง ฿600</span>
+            <span data-i18n="ticker2">📍 รับ-ส่งรถ ทั้งมุกดาหารและนครพนม</span>
+            <span data-i18n="ticker3">📞 โทร: 061-5493256, 061-5474953</span>
+            <span data-i18n="ticker4">📱 Line: 98CarRent, aoftaaof</span>
+            <span data-i18n="ticker5">⭐ บริการดี ราคาเป็นกันเอง</span>
+            <span data-i18n="ticker1">🚗 เช่ารถรายวัน เริ่มต้นเพียง ฿600</span>
+            <span data-i18n="ticker2">📍 รับ-ส่งรถ ทั้งมุกดาหารและนครพนม</span>
+            <span data-i18n="ticker3">📞 โทร: 061-5493256, 061-5474953</span>
+            <span data-i18n="ticker4">📱 Line: 98CarRent, aoftaaof</span>
+            <span data-i18n="ticker5">⭐ บริการดี ราคาเป็นกันเอง</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- HOME -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-float" aria-hidden="true">
+                    <span class="float f1">🚗</span>
+                    <span class="float f2">🚙</span>
+                    <span class="float f3">🚕</span>
+                    <span class="float f4">🏞️</span>
+                    <span class="float f5">📷</span>
+                    <span class="float f6">🛣️</span>
+                </div>
+                <div class="hero-content">
+                    <img src="logo หน้าเว็บ.jpg" alt="98CarRent" class="hero-logo">
+                    <h2 data-i18n="hero_title">98CarRent</h2>
+                    <p data-i18n="hero_desc">รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ<br>บริการรถเช่าราคาถูก มุกดาหาร & นครพนม</p>
+                    <a href="#gallery" class="btn btn-primary btn-pulse" data-i18n="hero_btn">ดูรถเช่าทั้งหมด</a>
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3 data-i18n="feat1_title">รถเช่าขับเอง</h3>
+                    <p data-i18n="feat1_desc">เช่ารถขับเอง สะดวก รวดเร็ว ราคาถูก</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3 data-i18n="feat2_title">รถเช่าพร้อมคนขับ</h3>
+                    <p data-i18n="feat2_desc">มีคนขับบริการ ปลอดภัย สะดวกสบาย</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3 data-i18n="feat3_title">เช่ารายวัน/สัปดาห์/เดือน</h3>
+                    <p data-i18n="feat3_desc">เลือกแพ็กเกจเช่าที่เหมาะกับคุณ</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3 data-i18n="feat4_title">มุกดาหาร & นครพนม</h3>
+                    <p data-i18n="feat4_desc">บริการในพื้นที่มุกดาหารและนครพนม</p>
+                </div>
+            </div>
+            <div class="stats-section reveal">
+                <div class="stats-inner">
+                    <div class="stat">
+                        <h3><span class="counter" data-target="50">0</span>+</h3>
+                        <p data-i18n="stats_cars">คัน รถให้เช่า</p>
+                    </div>
+                    <div class="stat">
+                        <h3><span class="counter" data-target="15">0</span>+</h3>
+                        <p data-i18n="stats_places">แห่ง สถานที่ท่องเที่ยว</p>
+                    </div>
+                    <div class="stat">
+                        <h3><span class="counter" data-target="3000">0</span>+</h3>
+                        <p data-i18n="stats_customers">ลูกค้าที่ไว้ใจ</p>
+                    </div>
+                    <div class="stat">
+                        <h3><span class="counter" data-target="10">0</span></h3>
+                        <p data-i18n="stats_years">ปี บริการ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAR GALLERY -->
+        <section id="gallery" class="page">
+            <div class="section-header">
+                <h2 data-i18n="gallery_title">🚗 รถเช่าของเรา</h2>
+                <p data-i18n="gallery_sub">เลือกรถเช่าที่ต้องการ ทั้งรายวัน รายสัปดาห์ รายเดือน</p>
+            </div>
+            <div class="gallery-grid" id="carGallery"></div>
+        </section>
+
+        <!-- TOURISM -->
+        <section id="tourism" class="page">
+            <div class="section-header">
+                <h2 data-i18n="tourism_title">🗺️ สถานที่ท่องเที่ยว</h2>
+                <div class="tourism-tabs">
+                    <button class="tab-btn active" onclick="filterTourism('mukdahan')" data-i18n="tab_mukdahan">มุกดาหาร</button>
+                    <button class="tab-btn" onclick="filterTourism('nakhonphanom')" data-i18n="tab_nakhonphanom">นครพนม</button>
+                    <button class="tab-btn" onclick="filterTourism('all')" data-i18n="filter_all">ทั้งหมด</button>
+                </div>
+            </div>
+            <div class="tourism-grid" id="tourismGrid"></div>
+        </section>
+
+        <!-- REVIEW -->
+        <section id="review" class="page">
+            <div class="section-header">
+                <h2 data-i18n="review_title">⭐ รีวิวจากลูกค้า</h2>
+                <p data-i18n="review_sub">ความคิดเห็นจากลูกค้าที่ใช้บริการ</p>
+            </div>
+            <div class="review-grid" id="reviewGrid"></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page">
+            <div class="section-header">
+                <h2 data-i18n="contact_title">📞 ติดต่อเรา</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3 data-i18n="contact_phone">โทรศัพท์</h3>
+                    <a href="tel:0615493256">061-5493256</a>
+                    <a href="tel:0615474953">061-5474953</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-line"></i>
+                    <h3>LINE</h3>
+                    <p>98CarRent</p>
+                    <p>aoftaaof</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <a href="https://www.facebook.com/profile.php?id=100066806268712" target="_blank">98CarRent</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3 data-i18n="contact_address">ที่อยู่</h3>
+                    <p data-i18n="contact_address_detail">จังหวัดมุกดาหาร, ประเทศไทย</p>
+                    <p>16.5423178, 104.7060475</p>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50000!2d104.7060474693089!3d16.542317837821425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth" 
+                    width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 รถเช่ามุกดาหาร 98CarRent. โทร: 061-5493256 , 061-5474953 | Line:98CarRent และ aoftaaof</p>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo หน้าเว็บ.jpg" alt="98CarRent Logo" class="footer-logo">
+                <h3>98CarRent</h3>
+                <p data-i18n="footer_desc">รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home" data-i18n="nav_home">หน้าแรก</a>
+                <a href="#gallery" data-i18n="nav_gallery">รถเช่า</a>
+                <a href="#tourism" data-i18n="nav_tourism">สถานที่ท่องเที่ยว</a>
+                <a href="#review" data-i18n="nav_review">รีวิว</a>
+                <a href="#contact" data-i18n="nav_contact">ติดต่อ</a>
+            </div>
+            <div class="footer-social">
+                <a href="tel:0615493256"><i class="fas fa-phone"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100066806268712" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2026 98CarRent. All rights reserved.</p>
+        </div>
     </footer>
 
+    <button id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <div id="toastBox"></div>
+
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal booking-modal">
+            <div class="modal-header">
+                <h3 data-i18n="booking_title">📞 จองรถ</h3>
+                <button class="close-btn" onclick="closeBooking()">&times;</button>
+            </div>
+            <div class="booking-content">
+                <p class="booking-car" id="bookingCarName"></p>
+                <p data-i18n="booking_note">ติดต่อเราเพื่อจองรถได้เลยครับ ทีมงานพร้อมให้บริการทุกวัน</p>
+                <div class="booking-contact">
+                    <a href="tel:0615493256" class="booking-item"><i class="fas fa-phone-alt"></i> <div><strong>061-5493256</strong><span data-i18n="booking_call">โทรจอง</span></div></a>
+                    <a href="tel:0615474953" class="booking-item"><i class="fas fa-phone-alt"></i> <div><strong>061-5474953</strong><span data-i18n="booking_call">โทรจอง</span></div></a>
+                    <a href="https://line.me/ti/p/~98CarRent" target="_blank" class="booking-item"><i class="fab fa-line"></i> <div><strong>98CarRent</strong><span>LINE</span></div></a>
+                    <a href="https://line.me/ti/p/~aoftaaof" target="_blank" class="booking-item"><i class="fab fa-line"></i> <div><strong>aoftaaof</strong><span>LINE</span></div></a>
+                    <a href="https://www.facebook.com/profile.php?id=100066806268712" target="_blank" class="booking-item"><i class="fab fa-facebook"></i> <div><strong>98CarRent</strong><span>Facebook</span></div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
