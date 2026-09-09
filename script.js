@@ -786,6 +786,23 @@ const statsObserver = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.3 });
 
+// ========== SECRET ADMIN ENTRY (ปุ่มจัดการถูกซ่อน — แตะโลโก้ท้ายเว็บ 5 ครั้ง) ==========
+(function setupSecretAdmin() {
+    let taps = 0, timer = null;
+    document.addEventListener('click', e => {
+        if (IS_ADMIN) return;
+        if (e.target.closest && e.target.closest('#secretAdmin')) {
+            taps++;
+            clearTimeout(timer);
+            timer = setTimeout(() => { taps = 0; }, 2500);
+            if (taps >= 5) {
+                taps = 0;
+                location.href = 'admin.html';
+            }
+        }
+    });
+})();
+
 function setupBackToTop() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
