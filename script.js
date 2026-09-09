@@ -46,6 +46,7 @@ const translations = {
         stats_customers: "ลูกค้าที่ไว้ใจ",
         stats_years: "ปี บริการ",
         toast_saved: "บันทึกเรียบร้อยแล้ว 🎉",
+        toast_save_fail: "⚠️ บันทึกไม่สำเร็จ (พื้นที่เบราว์เซอร์เต็ม) — ลองลบรูปที่อัปโหลดแล้วใช้ลิงก์ URL แทน",
         toast_exported: "📤 Export ข้อมูลแล้ว — ส่งไฟล์ JSON ให้ผมเพื่ออัปเดตเว็บ",
         toast_deleted: "ลบเรียบร้อยแล้ว 🗑️",
         gallery_title: "🚗 รถเช่าของเรา", gallery_sub: "เลือกรถเช่าที่ต้องการ ทั้งรายวัน รายสัปดาห์ รายเดือน",
@@ -117,6 +118,7 @@ const translations = {
         stats_customers: "Happy customers",
         stats_years: "Years of service",
         toast_saved: "Saved successfully 🎉",
+        toast_save_fail: "⚠️ Save failed (browser storage full) — remove uploaded photos and use image URLs instead",
         toast_exported: "📤 Data exported — send the JSON file to update the website",
         toast_deleted: "Deleted successfully 🗑️",
         gallery_title: "🚗 Our Cars", gallery_sub: "Choose your rental car, daily, weekly, or monthly",
@@ -264,7 +266,8 @@ function getData(key, fallback) {
     catch { return fallback; }
 }
 function setData(key, val) {
-    try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+    try { localStorage.setItem(key, JSON.stringify(val)); return true; }
+    catch(e) { return false; }
 }
 function copyText(t) {
     try { navigator.clipboard.writeText(t); }
@@ -493,7 +496,10 @@ function saveCar(e) {
     } else {
         cars.push(carData);
     }
-    setData('cars', normalizeCars(cars));
+    if (!setData('cars', normalizeCars(cars))) {
+        try { showToast(translations[lang].toast_save_fail); } catch(err) {}
+        return;
+    }
     renderCars();
     closeCarModal();
     try { showToast(translations[lang].toast_saved); } catch(err) {}
@@ -599,7 +605,10 @@ function saveTourism(e) {
     } else {
         tourismData.push(data);
     }
-    setData('tourism', tourismData);
+    if (!setData('tourism', tourismData)) {
+        try { showToast(translations[lang].toast_save_fail); } catch(err) {}
+        return;
+    }
     renderTourism();
     closeTourismModal();
     try { showToast(translations[lang].toast_saved); } catch(err) {}
@@ -712,7 +721,10 @@ function saveReview(e) {
     } else {
         reviews.unshift(data);
     }
-    setData('reviews', reviews);
+    if (!setData('reviews', reviews)) {
+        try { showToast(translations[lang].toast_save_fail); } catch(err) {}
+        return;
+    }
     renderReviews();
     closeReviewModal();
     try { showToast(translations[lang].toast_saved); } catch(err) {}
