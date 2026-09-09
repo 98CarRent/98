@@ -345,28 +345,33 @@ function normalizeCars(data) {
         return { ...c, prices };
     }).filter(Boolean);
 }
-// ========== DATA VERSION ==========
-// เพิ่มเลขนี้เมื่ออัปเดตข้อมูลเริ่มต้น (defaultCars/defaultTourism/defaultReviews)
-// เพื่อให้ข้อมูลเก่าที่เก็บไว้ทุกเครื่องถูกแทนที่ด้วยชุดใหม่
-const DATA_VERSION = '6';
-function syncDataVersion() {
-    let v = null;
-    try { v = localStorage.getItem('data_version'); } catch(e) {}
-    if (v !== DATA_VERSION) {
-        try {
-            localStorage.removeItem('cars');
-            localStorage.removeItem('tourism');
-            localStorage.removeItem('reviews');
-            localStorage.setItem('data_version', DATA_VERSION);
-        } catch(e) {}
+// ========== DATA SEED & MERGE ==========
+// เติมข้อมูลเริ่มต้นเฉพาะครั้งแรก หรือเติมเฉพาะรายการใหม่ที่ยังไม่มี
+// *** ไม่ลบ/ไม่ทับข้อมูลที่ผู้ใช้แก้ไขไว้แล้ว (แก้บั๊กราคาที่แก้ไว้เด้งกลับเป็นค่าเดิม) ***
+function mergeDefaults(key, defaults, normalize) {
+    const norm = arr => (normalize ? normalize(arr) : arr);
+    let raw = null;
+    try { raw = localStorage.getItem(key); } catch(e) {}
+    if (raw === null) {
+        const fresh = norm(defaults);
+        setData(key, fresh);
+        return fresh;
+    }
+    try {
+        const arr = JSON.parse(raw);
+        if (!Array.isArray(arr)) { const fresh = norm(defaults); setData(key, fresh); return fresh; }
+        const current = norm(arr);
+        const ids = new Set(current.map(x => x && x.id));
+        const missing = norm(defaults).filter(x => x && !ids.has(x.id));
+        const merged = missing.length ? [...current, ...missing] : current;
+        setData(key, merged);
+        return merged;
+    } catch(e) {
+        return norm(defaults);
     }
 }
-syncDataVersion();
 
-let carsSeeded = false;
-try { carsSeeded = localStorage.getItem('cars') !== null; } catch(e) {}
-let cars = normalizeCars(getData('cars', defaultCars));
-if (!carsSeeded) setData('cars', cars);
+let cars = mergeDefaults('cars', defaultCars, normalizeCars);
 let carFilter = 'all';
 
 function priceHTML(p) {
@@ -513,7 +518,7 @@ const defaultTourism = [
     { id: 7, name: "พระธาตุเรณู & พระธาตุท่าอุเทน", desc: "เส้นทางสายบุญพระธาตุประจำวันเกิด เที่ยวครบจบในวันเดียวจากตัวเมือง", province: "nakhonphanom", lat: 17.3397, lng: 104.7325, img: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80&auto=format&fit=crop" },
     { id: 8, name: "พิพิธภัณฑ์จวนผู้ว่าฯ นครพนม", desc: "บ้านพักผู้ว่าสมัยก่อน ชมประวัติศาสตร์เมืองนครพนมริมโขง", province: "nakhonphanom", lat: 17.3956, lng: 104.7890, img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80&auto=format&fit=crop" },
 ];
-let tourismData = getData('tourism', defaultTourism);
+let tourismData = mergeDefaults('tourism', defaultTourism, null);
 let tourismFilter = 'all';
 
 function renderTourism() {
@@ -614,7 +619,7 @@ const defaultReviews = [
     { id: 2, name: "Sarah Johnson", stars: 5, text: "Excellent service! The car was clean and the driver was very professional. Highly recommended!", img: "", date: "2026-07-20" },
     { id: 3, name: "วิภา วงศ์ไทย", stars: 4, text: "เช่ารถขับเอง สะดวกมาก รถสภาพดี ราคาไม่แพง ขับเที่ยวมุกดาหารสบายๆ", img: "", date: "2026-09-01" },
 ];
-let reviews = getData('reviews', defaultReviews);
+let reviews = mergeDefaults('reviews', defaultReviews, null);
 
 function renderReviews() {
     const grid = document.getElementById('reviewGrid');
