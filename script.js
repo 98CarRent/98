@@ -415,6 +415,20 @@ function renderCars() {
         }
     }
     try { renderAdminLists(); } catch(e) {}
+    try { updateRateMin(); } catch(e) {}
+}
+// ราคาเริ่มต้นหน้าแรก — คำนวณจากราคาต่ำสุดจริงของรถทุกคัน (เพิ่ม/ลบรถแล้วอัปเดตเอง)
+function updateRateMin() {
+    if (!Array.isArray(cars) || cars.length === 0) return;
+    const minOf = k => {
+        const vals = cars.map(c => (c.prices && Number(c.prices[k])) || 0).filter(v => v > 0);
+        return vals.length ? Math.min(...vals) : 0;
+    };
+    const map = { rateDailyMin: minOf('daily'), rateWeeklyMin: minOf('weekly'), rateMonthlyMin: minOf('monthly') };
+    Object.keys(map).forEach(id => {
+        const el = document.getElementById(id);
+        if (el && map[id] > 0) el.textContent = map[id].toLocaleString();
+    });
 }
 function filterCars(type, btn) {
     carFilter = type;
