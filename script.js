@@ -12,8 +12,18 @@ const translations = {
         subtitle: "รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ",
         nav_home: "หน้าแรก", nav_gallery: "รถเช่า", nav_tourism: "สถานที่ท่องเที่ยว", nav_review: "รีวิว", nav_contact: "ติดต่อ",
         hero_title: "98CarRent",
+        hero_eyebrow: "MUKDAHAN • NAKHON PHANOM — PREMIUM CAR RENTAL",
         hero_desc: "รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ<br>บริการรถเช่าราคาถูก มุกดาหาร & นครพนม",
         hero_btn: "ดูรถเช่าทั้งหมด",
+        hero_b1: "ขับเอง / พร้อมคนขับ", hero_b2: "รายวัน • รายสัปดาห์ • รายเดือน", hero_b3: "รับ-ส่งฟรีในเมือง",
+        rate_eyebrow: "SIMPLE PRICING", rate_title: "แพ็กเกจเรียบง่าย โปร่งใส", rate_sub: "เริ่มต้นเพียง ฿600/วัน — ยิ่งเช่ายาว ยิ่งคุ้ม",
+        rate_from: " เริ่มต้น", rate_pop: "ยอดนิยม", rate_btn: "ดูรถแพ็กเกจนี้",
+        rate_d_desc: "เที่ยวในเมือง ธุระด่วน 1–6 วัน",
+        rate_w_desc: "ทริปยาว กลับบ้าน เที่ยวโขง 7 วันคุ้มกว่า",
+        rate_m_desc: "ทำงานโปรเจกต์ มาทำงานต่างจังหวัด",
+        show_eyebrow: "WHY 98CARRENT", show_title: "น้อยแต่มาก — สะอาด ตรงเวลา ใส่ใจ",
+        show_desc: "รถทุกคันในโฟลเดอร์ Image/ ตรวจเช็กก่อนส่งมอบ ประกันพื้นฐาน ฟรีรับ-ส่งในตัวเมืองมุกดาหาร",
+        show_p1: "รถตรวจสภาพทุกครั้ง", show_p2: "จองด่วนใน 10 นาที", show_p3: "ไม่มีค่าธรรมเนียมแอบแฝง",
         feat1_title: "รถเช่าขับเอง", feat1_desc: "เช่ารถขับเอง สะดวก รวดเร็ว ราคาถูก",
         feat2_title: "รถเช่าพร้อมคนขับ", feat2_desc: "มีคนขับบริการ ปลอดภัย สะดวกสบาย",
         feat3_title: "เช่ารายวัน/สัปดาห์/เดือน", feat3_desc: "เลือกแพ็กเกจเช่าที่เหมาะกับคุณ",
@@ -47,9 +57,10 @@ const translations = {
         booking_note: "ติดต่อเราเพื่อจองรถได้เลยครับ ทีมงานพร้อมให้บริการทุกวัน",
         booking_call: "โทรจอง",
         tourism_title: "🗺️ สถานที่ท่องเที่ยว",
+        tourism_sub: "มุกดาหาร & นครพนม — กดที่พิกัดเพื่อเปิด Google Maps นำทาง",
         tab_mukdahan: "มุกดาหาร", tab_nakhonphanom: "นครพนม",
         add_tourism: "+ เพิ่มสถานที่ท่องเที่ยว",
-        review_title: "⭐ รีวิวจากลูกค้า", review_sub: "ความคิดเห็นจากลูกค้าที่ใช้บริการ",
+        review_title: "⭐ รีวิวจากลูกค้า", review_sub: "ความคิดเห็นจากลูกค้าที่ใช้บริการ — เพิ่มรีวิวพร้อมรูปได้เลย",
         add_review: "+ เพิ่มรีวิว",
         contact_title: "📞 ติดต่อเรา", contact_phone: "โทรศัพท์", contact_address: "ที่อยู่",
         contact_address_detail: "จังหวัดมุกดาหาร, ประเทศไทย",
@@ -75,8 +86,15 @@ const translations = {
         subtitle: "Car Rental Mukdahan Self-drive & With Driver",
         nav_home: "Home", nav_gallery: "Cars", nav_tourism: "Tourism", nav_review: "Reviews", nav_contact: "Contact",
         hero_title: "98CarRent",
+        hero_eyebrow: "MUKDAHAN • NAKHON PHANOM — PREMIUM CAR RENTAL",
         hero_desc: "Car Rental Mukdahan Self-drive & With Driver<br>Affordable car rental in Mukdahan & Nakhon Phanom",
         hero_btn: "View All Cars",
+        hero_b1: "Self-drive / With driver", hero_b2: "Daily • Weekly • Monthly", hero_b3: "Free delivery in town",
+        rate_eyebrow: "SIMPLE PRICING", rate_title: "Simple, transparent packages", rate_sub: "From only ฿600/day — longer is cheaper",
+        rate_from: " from", rate_pop: "Popular", rate_btn: "View cars",
+        rate_d_desc: "City trips, errands, 1–6 days",
+        rate_w_desc: "Long trips home, Mekong tour — 7 days best value",
+        rate_m_desc: "Project work, out-of-town assignments",
         feat1_title: "Self-drive Rental", feat1_desc: "Drive yourself, convenient and affordable",
         feat2_title: "With Driver", feat2_desc: "Professional driver service, safe and comfortable",
         feat3_title: "Daily/Weekly/Monthly", feat3_desc: "Choose the rental package that suits you",
@@ -110,9 +128,13 @@ const translations = {
         booking_note: "Contact us to book your car. Our team is ready to serve you every day.",
         booking_call: "Call to book",
         tourism_title: "🗺️ Tourist Attractions",
+        tourism_sub: "Mukdahan & Nakhon Phanom — tap coordinates to open Google Maps",
+        show_eyebrow: "WHY 98CARRENT", show_title: "Less but better — clean, punctual, caring",
+        show_desc: "Every car in the Image/ folder is inspected before handover. Basic insurance included. Free delivery in Mukdahan town.",
+        show_p1: "Inspected every time", show_p2: "Book in 10 minutes", show_p3: "No hidden fees",
         tab_mukdahan: "Mukdahan", tab_nakhonphanom: "Nakhon Phanom",
         add_tourism: "+ Add Attraction",
-        review_title: "⭐ Customer Reviews", review_sub: "Reviews from our customers",
+        review_title: "⭐ Customer Reviews", review_sub: "Reviews from our customers — add yours with a photo",
         add_review: "+ Add Review",
         contact_title: "📞 Contact Us", contact_phone: "Phone", contact_address: "Address",
         contact_address_detail: "Mukdahan Province, Thailand",
@@ -145,7 +167,7 @@ function toggleLang() {
 function applyLang() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 // skip
             } else {
@@ -153,14 +175,22 @@ function applyLang() {
             }
         }
     });
-    document.getElementById('langBtn').textContent = lang === 'th' ? '🇹🇭 TH / 🇬🇧 EN' : '🇬🇧 EN / 🇹🇭 TH';
+    const lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = lang === 'th' ? '🇹🇭 TH / 🇬🇧 EN' : '🇬🇧 EN / 🇹🇭 TH';
+    try { renderCars(); renderTourism(); renderReviews(); } catch(e) {}
 }
 
 // ========== THEME ==========
+function setThemePreset(color) {
+    const picker = document.getElementById('themeColor');
+    if (picker) picker.value = color;
+    changeTheme(color);
+}
 function changeTheme(color) {
+    if (!color || !/^#[0-9a-fA-F]{6}$/.test(color)) return;
     document.documentElement.style.setProperty('--primary', color);
-    const darker = darkenColor(color, 30);
-    const lighter = lightenColor(color, 30);
+    const darker = darkenColor(color, 28);
+    const lighter = lightenColor(color, 32);
     document.documentElement.style.setProperty('--primary-dark', darker);
     document.documentElement.style.setProperty('--primary-light', lighter);
     try { localStorage.setItem('themeColor', color); } catch(e) {}
@@ -182,13 +212,28 @@ function lightenColor(hex, pct) {
 function loadTheme() {
     let c = null;
     try { c = localStorage.getItem('themeColor'); } catch(e) {}
-    if (c) {
-        document.getElementById('themeColor').value = c;
+    if (c && /^#[0-9a-fA-F]{6}$/.test(c)) {
+        const picker = document.getElementById('themeColor');
+        if (picker) picker.value = c;
         changeTheme(c);
+    } else {
+        changeTheme('#B9975B');
     }
 }
 
 // ========== NAV ==========
+function goPage(target) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const el = document.getElementById(target);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.main-nav a').forEach(x => {
+        x.classList.toggle('active', x.getAttribute('href') === '#' + target);
+    });
+    const nav = document.getElementById('mainNav');
+    if (nav) nav.classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try { setupReveal(); animateCounters(); } catch(e) {}
+}
 function toggleMenu() {
     document.getElementById('mainNav').classList.toggle('show');
 }
@@ -303,7 +348,7 @@ function normalizeCars(data) {
 // ========== DATA VERSION ==========
 // เพิ่มเลขนี้เมื่ออัปเดตข้อมูลเริ่มต้น (defaultCars/defaultTourism/defaultReviews)
 // เพื่อให้ข้อมูลเก่าที่เก็บไว้ทุกเครื่องถูกแทนที่ด้วยชุดใหม่
-const DATA_VERSION = '5';
+const DATA_VERSION = '6';
 function syncDataVersion() {
     let v = null;
     try { v = localStorage.getItem('data_version'); } catch(e) {}
@@ -343,7 +388,13 @@ function renderCars() {
     const grid = document.getElementById('carGallery');
     if (grid) {
         let list = cars;
-        if (carFilter !== 'all') list = cars.filter(c => (c.prices && c.prices[carFilter]) || c.period === carFilter);
+        if (carFilter === 'daily' || carFilter === 'weekly' || carFilter === 'monthly') {
+            list = cars.filter(c => (c.prices && c.prices[carFilter] > 0) || c.period === carFilter);
+        } else if (carFilter === 'self') {
+            list = cars.filter(c => c.driver !== 'yes');
+        } else if (carFilter === 'with') {
+            list = cars.filter(c => c.driver === 'yes');
+        }
         if (list.length === 0) {
             grid.innerHTML = `<div class="empty-state"><i class="fas fa-car"></i><p>${translations[lang].empty_car}</p></div>`;
         } else {
@@ -356,7 +407,7 @@ function renderCars() {
                     <div class="car-info">
                         <h3>${c.name} ${driverBadge}</h3>
                         <p>${c.desc}</p>
-                        <div class="price-row">${priceHTML(c.prices)}</div>
+                        <div class="price-row">${priceHTML(c.prices || {})}</div>
                         ${bookBtn}
                     </div>
                 </div>`;
@@ -365,10 +416,16 @@ function renderCars() {
     }
     try { renderAdminLists(); } catch(e) {}
 }
-function filterCars(type) {
+function filterCars(type, btn) {
     carFilter = type;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    const scope = (btn && btn.closest) ? btn.closest('.section-header, .lux-section, body') : document;
+    const bar = (btn && btn.closest && btn.closest('#carFilterBar')) ? document.getElementById('carFilterBar') : document.getElementById('carFilterBar');
+    if (bar) bar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn && btn.classList) btn.classList.add('active');
+    else document.querySelectorAll('#carFilterBar .filter-btn').forEach(b => {
+        const t = b.getAttribute('onclick') || '';
+        b.classList.toggle('active', t.includes("'" + type + "'"));
+    });
     renderCars();
 }
 function openCarModal(id) {
@@ -431,15 +488,16 @@ function confirmDeleteCar(id) {
     });
 }
 
-// ========== TOURISM ==========
+// ========== TOURISM (รูปจาก internet + ปักหมุด Location เปิด Google Maps) ==========
 const defaultTourism = [
-    { id: 1, name: "ภูผาเทิบ", desc: "อุทยานแห่งชาติภูผาเทิบ จุดชมวิวที่สวยงามของมุกดาหาร มีหินรูปร่างแปลกตา", province: "mukdahan", lat: 16.5512, lng: 104.7344, img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" },
-    { id: 2, name: "สะพานมิตรภาพ ไทย-ลาว แห่งที่ 2", desc: "สะพานเชื่อมโยงไทย-ลาว ที่สวยงาม สามารถเดินทางไปท่องเที่ยวฝั่งลาวได้", province: "mukdahan", lat: 16.5372, lng: 104.7119, img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" },
-    { id: 3, name: "DED情報センター (Mukdahan HUB)", desc: "ศูนย์รวมสินค้า OTOP และสินค้าปลอดภาษี ช้อปปิ้งสินค้าราคาถูก", province: "mukdahan", lat: 16.5398, lng: 104.7183, img: "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=600&h=400&fit=crop" },
-    { id: 4, name: "วัดพระธาตุพนมวรมหาวิหาร", desc: "วัดพระธาตุพนม สถานที่ศักดิ์สิทธิ์คู่บ้านคู่เมืองนครพนม บรรจุพระอุรังคธาตุ", province: "nakhonphanom", lat: 17.3913, lng: 104.7842, img: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&h=400&fit=crop" },
-    { id: 5, name: "ริมแม่น้ำโขง นครพนม", desc: "ถนนริมแม่น้ำโขง ชมวิถีชีวิตชาวบ้านริมแม่น้ำ บรรยากาศยามเย็นสวยงาม", province: "nakhonphanom", lat: 17.3928, lng: 104.7934, img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop" },
-    { id: 6, name: "พิพิธภัณฑ์วัดพระธาตุพนม", desc: "พิพิธภัณฑ์ศิลปะและประวัติศาสตร์ท้องถิ่น จัดแสดงโบราณวัตถุ", province: "nakhonphanom", lat: 17.3910, lng: 104.7830, img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=400&fit=crop" },
-    { id: 7, name: "วัดศรีมงคลใต้", desc: "วัดคู่บ้านคู่เมืองมุกดาหาร ริมแม่น้ำโขง ประดิษฐานพระเจ้าองค์หลวง พระพุทธรูปเก่าแก่ศักดิ์สิทธิ์", province: "mukdahan", lat: 16.5439, lng: 104.7312, img: "https://images.unsplash.com/photo-1521714161819-155a34d7225a?w=600&h=400&fit=crop" },
+    { id: 1, name: "หอแก้วมุกดาหาร (Mukdahan Tower)", desc: "หอชมเมืองมุกดาหาร 360 องศา ชมวิวแม่น้ำโขงและฝั่งลาว สัญลักษณ์เมืองมุกดาหาร", province: "mukdahan", lat: 16.5445, lng: 104.7347, img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop" },
+    { id: 2, name: "ตลาดอินโดจีน มุกดาหาร", desc: "ตลาดริมโขง ของฝาก OTOP สินค้าอินโดจีน ช้อปเพลินเดินชิลยามเย็น", province: "mukdahan", lat: 16.5398, lng: 104.7412, img: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&q=80&auto=format&fit=crop" },
+    { id: 3, name: "ภูผาเทิบ & ผาแต้มน้อย", desc: "อุทยานแห่งชาติภูผาเทิบ หินรูปร่างแปลกตา จุดชมวิวพระอาทิตย์ขึ้นสวยที่สุด", province: "mukdahan", lat: 16.5512, lng: 104.7344, img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80&auto=format&fit=crop" },
+    { id: 4, name: "สะพานมิตรภาพไทย-ลาว แห่งที่ 2", desc: "สะพานข้ามโขงเชื่อมมุกดาหาร–สะหวันนะเขต จุดถ่ายรูปแลนด์มาร์กยามเย็น", province: "mukdahan", lat: 16.5372, lng: 104.7119, img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop" },
+    { id: 5, name: "วัดพระธาตุพนมวรมหาวิหาร", desc: "พระธาตุพนม สิ่งศักดิ์สิทธิ์คู่บ้านคู่เมืองนครพนม บรรจุพระอุรังคธาตุ", province: "nakhonphanom", lat: 17.3913, lng: 104.7842, img: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80&auto=format&fit=crop" },
+    { id: 6, name: "ถนนคนเดินริมโขง นครพนม", desc: "ถนนริมแม่น้ำโขง ชมวิวฝั่งลาว บรรยากาศยามเย็น ปั่นจักรยานชิลๆ", province: "nakhonphanom", lat: 17.3928, lng: 104.7934, img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80&auto=format&fit=crop" },
+    { id: 7, name: "พระธาตุเรณู & พระธาตุท่าอุเทน", desc: "เส้นทางสายบุญพระธาตุประจำวันเกิด เที่ยวครบจบในวันเดียวจากตัวเมือง", province: "nakhonphanom", lat: 17.3397, lng: 104.7325, img: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80&auto=format&fit=crop" },
+    { id: 8, name: "พิพิธภัณฑ์จวนผู้ว่าฯ นครพนม", desc: "บ้านพักผู้ว่าสมัยก่อน ชมประวัติศาสตร์เมืองนครพนมริมโขง", province: "nakhonphanom", lat: 17.3956, lng: 104.7890, img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80&auto=format&fit=crop" },
 ];
 let tourismData = getData('tourism', defaultTourism);
 let tourismFilter = 'all';
@@ -454,28 +512,33 @@ function renderTourism() {
             grid.innerHTML = filtered.map(t => {
                 const pBadge = t.province === 'mukdahan' ? 'province-mukdahan' : 'province-nakhonphanom';
                 const pLabel = translations[lang]['tab_' + t.province] || t.province;
-                const mapUrl = t.lat && t.lng ? `https://www.google.com/maps?q=${t.lat},${t.lng}` : '#';
-                const target = t.lat && t.lng ? ' target="_blank"' : '';
+                const mapUrl = (t.lat && t.lng) ? `https://www.google.com/maps?q=${t.lat},${t.lng}` : '#';
+                const target = (t.lat && t.lng) ? ' target="_blank" rel="noopener"' : '';
+                const delBtn = IS_ADMIN ? adminActions('tourism', t.id) : '';
                 return `
                 <div class="tourism-card" data-province="${t.province}">
                     <img src="${t.img || NO_IMG}" alt="${t.name}" loading="lazy" onerror="imgErr(this)">
                     <div class="tourism-info">
                         <h3>${t.name}</h3>
                         <p>${t.desc}</p>
-                        <span class="tourism-province-badge ${pBadge}">${pLabel}</span>
-                        ${t.lat && t.lng ? `<a class="tourism-location" href="${mapUrl}"${target}><i class="fas fa-map-marker-alt"></i> ${t.lat}, ${t.lng}</a>` : ''}
+                        <span class="tourism-province-badge ${pBadge}">${pLabel}</span><br>
+                        ${(t.lat && t.lng) ? `<a class="tourism-location" href="${mapUrl}"${target}><i class="fas fa-map-marker-alt"></i> 📍 ${t.lat}, ${t.lng} — Google Maps</a>` : ''}
                     </div>
-                    ${adminActions('tourism', t.id)}
+                    ${delBtn}
                 </div>`;
             }).join('');
         }
     }
     try { renderAdminLists(); } catch(e) {}
 }
-function filterTourism(type) {
+function filterTourism(type, btn) {
     tourismFilter = type;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    document.querySelectorAll('.tourism-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+    if (btn && btn.classList) btn.classList.add('active');
+    else document.querySelectorAll('.tourism-tabs .tab-btn').forEach(b => {
+        const t = b.getAttribute('onclick') || '';
+        b.classList.toggle('active', t.includes("'" + type + "'"));
+    });
     renderTourism();
 }
 function openTourismModal() {
@@ -547,61 +610,82 @@ function renderReviews() {
         } else {
             grid.innerHTML = reviews.map(r => {
                 const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+                // หน้าเว็บลูกค้า: ลบรีวิว/รูปได้เลย + admin แก้ไขได้
+                const actions = IS_ADMIN ? adminActions('review', r.id)
+                    : `<div class="review-actions"><button class="delete-btn" onclick="confirmDeleteReview(${r.id})" title="ลบ"><i class="fas fa-trash"></i></button></div>`;
+                const safeName = String(r.name || '').replace(/</g, '&lt;');
+                const safeText = String(r.text || '').replace(/</g, '&lt;');
                 return `
                 <div class="review-card">
                     <div class="review-stars">${stars}</div>
-                    <h3>${r.name}</h3>
-                    <p>${r.text}</p>
+                    <h3>${safeName}</h3>
+                    <p>${safeText}</p>
                     ${r.img ? `<img src="${r.img}" alt="review" loading="lazy" onerror="imgErr(this)">` : ''}
                     <div class="review-date">${r.date || ''}</div>
-                    ${adminActions('review', r.id)}
+                    ${actions}
                 </div>`;
             }).join('');
         }
     }
     try { renderAdminLists(); } catch(e) {}
 }
-function openReviewModal() {
-    document.getElementById('reviewModal').classList.add('show');
-    document.getElementById('reviewForm').reset();
-    document.getElementById('reviewEditId').value = '';
-    document.getElementById('reviewImgPreview').innerHTML = '';
-    selectedStars = 5;
-    updateStarDisplay();
+function openReviewModal(keepStars) {
+    const m = document.getElementById('reviewModal');
+    if (!m) return;
+    m.classList.add('show');
+    const f = document.getElementById('reviewForm');
+    if (f && !keepStars) f.reset();
+    const eid = document.getElementById('reviewEditId');
+    if (eid && !keepStars) eid.value = '';
+    const pv = document.getElementById('reviewImgPreview');
+    if (pv && !keepStars) pv.innerHTML = '';
+    const file = document.getElementById('reviewFile');
+    if (file) file.value = '';
+    if (!keepStars) {
+        selectedStars = 5;
+        try { updateStarDisplay(); } catch(e) {}
+    }
 }
 function closeReviewModal() {
-    document.getElementById('reviewModal').classList.remove('show');
+    const m = document.getElementById('reviewModal');
+    if (m) m.classList.remove('show');
 }
 function setStar(n) {
     selectedStars = n;
     updateStarDisplay();
 }
 function updateStarDisplay() {
-    document.querySelectorAll('#starInput span').forEach((s, i) => {
+    const stars = document.querySelectorAll('#starInput span');
+    if (!stars.length) return;
+    stars.forEach((s, i) => {
         s.classList.toggle('active', i < selectedStars);
     });
 }
 function editReview(id) {
     const r = reviews.find(x => x.id === id);
     if (!r) return;
+    openReviewModal(true);
     document.getElementById('reviewEditId').value = r.id;
     document.getElementById('reviewName').value = r.name;
     document.getElementById('reviewText').value = r.text;
     document.getElementById('reviewImg').value = r.img || '';
-    document.getElementById('reviewImgPreview').innerHTML = r.img ? `<img src="${r.img}">` : '';
-    selectedStars = r.stars;
+    document.getElementById('reviewImgPreview').innerHTML = r.img ? `<img src="${r.img}" onerror="imgErr(this)">` : '';
+    selectedStars = r.stars || 5;
     updateStarDisplay();
-    openReviewModal();
 }
 function saveReview(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const editId = document.getElementById('reviewEditId').value;
+    const name = document.getElementById('reviewName').value.trim().slice(0, 60);
+    const text = document.getElementById('reviewText').value.trim().slice(0, 500);
+    const img = document.getElementById('reviewImg').value.trim();
+    if (!name || !text) return;
     const data = {
         id: editId ? parseInt(editId) : Date.now(),
-        name: document.getElementById('reviewName').value,
-        stars: selectedStars,
-        text: document.getElementById('reviewText').value,
-        img: document.getElementById('reviewImg').value,
+        name,
+        stars: selectedStars || 5,
+        text,
+        img,
         date: new Date().toISOString().split('T')[0]
     };
     if (editId) {
