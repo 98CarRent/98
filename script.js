@@ -28,7 +28,7 @@ const translations = {
         feat2_title: "รถเช่าพร้อมคนขับ", feat2_desc: "มีคนขับบริการ ปลอดภัย สะดวกสบาย",
         feat3_title: "เช่ารายวัน/สัปดาห์/เดือน", feat3_desc: "เลือกแพ็กเกจเช่าที่เหมาะกับคุณ",
         feat4_title: "มุกดาหาร & นครพนม", feat4_desc: "บริการในพื้นที่มุกดาหารและนครพนม",
-        ticker1: "🚗 เช่ารถรายวัน เริ่มต้นเพียง ฿600",
+        ticker1: "🚗 เช่ารถรายวัน เริ่มต้นเพียง ฿890",
         ticker2: "📍 รับ-ส่งรถ ทั้งมุกดาหารและนครพนม",
         ticker3: "📞 โทร: 061-5493256, 061-5474953",
         ticker4: "📱 Line: 98CarRent, aoftaaof",
@@ -104,7 +104,7 @@ const translations = {
         feat2_title: "With Driver", feat2_desc: "Professional driver service, safe and comfortable",
         feat3_title: "Daily/Weekly/Monthly", feat3_desc: "Choose the rental package that suits you",
         feat4_title: "Mukdahan & Nakhon Phanom", feat4_desc: "Service in Mukdahan and Nakhon Phanom areas",
-        ticker1: "🚗 Daily car rental from only ฿600",
+        ticker1: "🚗 Daily car rental from only ฿890",
         ticker2: "📍 Pickup & drop-off in Mukdahan and Nakhon Phanom",
         ticker3: "📞 Call: 061-5493256, 061-5474953",
         ticker4: "📱 Line: 98CarRent, aoftaaof",
@@ -368,18 +368,18 @@ function adminActions(kind, id) {
     return '';
 }
 const defaultCars = [
-    { id: 1, name: "Toyota Fortuner", desc: "รถ SUV 7 ที่นั่ง สะดวกสบายสำหรับครอบครัว", prices: { daily: 1500, weekly: 8000, monthly: 28000 }, driver: "no", img: "Image/Toyota fortune.jpg" },
-    { id: 2, name: "Ford Focus", desc: "รถเก๋งกลาง ขับสนุก ประหยัดน้ำมัน", prices: { daily: 700, weekly: 4000, monthly: 14000 }, driver: "no", img: "Image/Foerd Focus.jpg" },
-    { id: 3, name: "Honda Jazz", desc: "รถอเนกประสงค์ขนาดเล็ก จอดง่าย ประหยัด", prices: { daily: 600, weekly: 3500, monthly: 12000 }, driver: "no", img: "Image/honda jazz.jpg" },
-    { id: 4, name: "Mazda CX-3", desc: "Crossover สไตล์สปอร์ต ขับขี่คล่องตัว", prices: { daily: 900, weekly: 5000, monthly: 18000 }, driver: "no", img: "Image/Mazda CX-3.jpg" },
-    { id: 5, name: "Mazda CX-5", desc: "SUV ขนาดกลาง หรูหรา สมรรถนะดี", prices: { daily: 1100, weekly: 6000, monthly: 22000 }, driver: "no", img: "Image/Mazda CX-5.jpg" },
-    { id: 6, name: "Mazda 2", desc: "รถเล็กประหยัด ใช้งานในเมืองคล่องตัว", prices: { daily: 650, weekly: 3800, monthly: 13000 }, driver: "no", img: "Image/Mazda2.jpg" },
-    { id: 7, name: "Mazda 3", desc: "Sports Sedan คมสวย ขับสนุก", prices: { daily: 850, weekly: 4800, monthly: 17000 }, driver: "no", img: "Image/Mazda3.jpg" },
-    { id: 8, name: "Mitsubishi Pajero", desc: "SUV 7 ที่นั่ง พร้อมคนขับ เดินทางไกล", prices: { daily: 1500, weekly: 8500, monthly: 30000 }, driver: "yes", img: "Image/mitsubishi pajero.jpg" },
-    { id: 9, name: "Nissan Juke", desc: "Crossover สไตล์ล้ำ จุดเด่นกระจังหน้า", prices: { daily: 900, weekly: 5000, monthly: 18000 }, driver: "no", img: "Image/nissan juke.jpg" },
-    { id: 10, name: "Nissan Sentra", desc: "ซีดานนั่งสบาย ประหยัด", prices: { daily: 700, weekly: 4000, monthly: 14000 }, driver: "no", img: "Image/nissan sentra.jpg" },
-    { id: 11, name: "Nissan Sylphy", desc: "ซีดานหรูหรา นั่งสบาย", prices: { daily: 750, weekly: 4200, monthly: 15000 }, driver: "no", img: "Image/nissan sylphy.jpg" },
-    { id: 12, name: "Nissan Sylphy (พร้อมคนขับ)", desc: "ซีดานหรู พร้อมคนขับ สำหรับธุรกิจ", prices: { daily: 850, weekly: 4800, monthly: 17000 }, driver: "yes", img: "Image/nissan sylphy2.jpg" },
+    { id: 1, name: "Toyota Fortuner", desc: "รถ SUV 7 ที่นั่ง สะดวกสบายสำหรับครอบครัว", prices: { daily: 2300, weekly: 15000, monthly: 60000 }, driver: "no", img: "Image/Toyota fortune.jpg" },
+    { id: 2, name: "Ford Focus", desc: "รถเก๋งกลาง ขับสนุก ประหยัดน้ำมัน", prices: { daily: 890, weekly: 5500, monthly: 17900 }, driver: "no", img: "Image/Foerd Focus.jpg" },
+    { id: 3, name: "Honda Jazz", desc: "รถอเนกประสงค์ขนาดเล็ก จอดง่าย ประหยัด", prices: { daily: 1100, weekly: 7000, monthly: 27000 }, driver: "no", img: "Image/honda jazz.jpg" },
+    { id: 4, name: "Mazda CX-3", desc: "Crossover สไตล์สปอร์ต ขับขี่คล่องตัว", prices: { daily: 1300, weekly: 7000, monthly: 22000 }, driver: "no", img: "Image/Mazda CX-3.jpg" },
+    { id: 5, name: "Mazda CX-5", desc: "SUV ขนาดกลาง หรูหรา สมรรถนะดี", prices: { daily: 1500, weekly: 9900, monthly: 39900 }, driver: "no", img: "Image/Mazda CX-5.jpg" },
+    { id: 6, name: "Mazda 2", desc: "รถเล็กประหยัด ใช้งานในเมืองคล่องตัว", prices: { daily: 900, weekly: 5900, monthly: 18900 }, driver: "no", img: "Image/Mazda2.jpg" },
+    { id: 7, name: "Mazda 3", desc: "Sports Sedan คมสวย ขับสนุก", prices: { daily: 1000, weekly: 6650, monthly: 25000 }, driver: "no", img: "Image/Mazda3.jpg" },
+    { id: 8, name: "Mitsubishi Pajero", desc: "SUV 7 ที่นั่ง พร้อมคนขับ เดินทางไกล", prices: { daily: 2200, weekly: 14500, monthly: 55000 }, driver: "yes", img: "Image/mitsubishi pajero.jpg" },
+    { id: 9, name: "Nissan Juke", desc: "Crossover สไตล์ล้ำ จุดเด่นกระจังหน้า", prices: { daily: 1000, weekly: 6000, monthly: 23500 }, driver: "no", img: "Image/nissan juke.jpg" },
+    { id: 10, name: "Nissan Sentra", desc: "ซีดานนั่งสบาย ประหยัด", prices: { daily: 1000, weekly: 6000, monthly: 27000 }, driver: "no", img: "Image/nissan sentra.jpg" },
+    { id: 11, name: "Nissan Sylphy", desc: "ซีดานหรูหรา นั่งสบาย", prices: { daily: 890, weekly: 6500, monthly: 22700 }, driver: "no", img: "Image/nissan sylphy.jpg" },
+    { id: 12, name: "Nissan Sylphy (พร้อมคนขับ)", desc: "ซีดานหรู พร้อมคนขับ สำหรับธุรกิจ", prices: { daily: 1000, weekly: 6000, monthly: 27000 }, driver: "yes", img: "Image/nissan sylphy2.jpg" },
 ];
 function normalizeCars(data) {
     return (Array.isArray(data) ? data : []).map(c => {
@@ -424,6 +424,21 @@ function mergeDefaults(key, defaults, normalize) {
 }
 
 let cars = mergeDefaults('cars', defaultCars, normalizeCars);
+// ซิงก์ราคาทางการ: เมื่อเจ้าของประกาศราคาใหม่ในโค้ด ( bump CARS_REV )
+// ทุกเครื่องจะอัปเดตราคาตามครั้งเดียว — รถที่เพิ่มเอง (id ใหม่) ยังเก็บไว้, การแก้โค้ดส่วนอื่นไม่กระทบ
+const CARS_REV = 2;
+try {
+    let storedRev = 0;
+    try { storedRev = parseInt(localStorage.getItem('cars_rev') || '0', 10) || 0; } catch(e) {}
+    if (storedRev < CARS_REV) {
+        const official = normalizeCars(defaultCars);
+        const officialIds = new Set(official.map(c => c && c.id));
+        const custom = (Array.isArray(cars) ? cars : []).filter(c => c && !officialIds.has(c.id));
+        cars = [...official, ...custom];
+        setData('cars', cars);
+        try { localStorage.setItem('cars_rev', String(CARS_REV)); } catch(e) {}
+    }
+} catch(e) {}
 let carFilter = 'all';
 
 function priceHTML(p) {
