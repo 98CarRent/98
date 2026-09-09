@@ -34,9 +34,12 @@ img { max-width:100%; }
 .top-controls button:hover, .admin-link:hover { background:var(--primary); border-color:var(--primary); }
 .theme-picker { display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.8); }
 .swatches { display:flex; gap:6px; }
-.swatch { width:22px; height:22px; border-radius:50%; background:var(--sw); border:2px solid rgba(255,255,255,.55); cursor:pointer; padding:0; transition:var(--transition); }
-.swatch:hover { transform:scale(1.2); border-color:#fff; }
-.theme-picker input[type="color"] { width:26px; height:26px; border:none; border-radius:50%; cursor:pointer; padding:0; background:none; }
+.theme-picker .swatch { width:22px; height:22px; flex-shrink:0; border-radius:50%; background:var(--sw); background-color:var(--sw); border:2px solid rgba(255,255,255,.6); cursor:pointer; padding:0; transition:var(--transition); }
+.theme-picker .swatch:hover { transform:scale(1.25); border-color:#fff; }
+.theme-picker input[type="color"] { -webkit-appearance:none; appearance:none; width:26px; height:26px; flex-shrink:0; border:2px solid rgba(255,255,255,.6); border-radius:50%; cursor:pointer; padding:0; background:transparent; }
+.theme-picker input[type="color"]::-webkit-color-swatch-wrapper { padding:0; }
+.theme-picker input[type="color"]::-webkit-color-swatch { border:none; border-radius:50%; }
+.theme-picker input[type="color"]::-moz-color-swatch { border:none; border-radius:50%; }
 
 /* ---------- HEADER ---------- */
 .main-header { background:rgba(255,255,255,.82); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:1000; }
