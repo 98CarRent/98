@@ -1,0 +1,250 @@
+{
+  "app": "98CarRent",
+  "exported": "2026-09-09T08:10:06.107Z",
+  "cars": [
+    {
+      "id": 1,
+      "name": "Toyota Fortuner",
+      "desc": "รถ SUV 7 ที่นั่ง สะดวกสบายสำหรับครอบครัว",
+      "prices": {
+        "daily": 2300,
+        "weekly": 15000,
+        "monthly": 60000
+      },
+      "driver": "no",
+      "img": "Image/Toyota fortune.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Ford Focus",
+      "desc": "รถเก๋งกลาง ขับสนุก ประหยัดน้ำมัน",
+      "prices": {
+        "daily": 890,
+        "weekly": 5500,
+        "monthly": 17900
+      },
+      "driver": "no",
+      "img": "Image/Foerd Focus.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Honda Jazz",
+      "desc": "รถอเนกประสงค์ขนาดเล็ก จอดง่าย ประหยัด",
+      "prices": {
+        "daily": 1100,
+        "weekly": 7000,
+        "monthly": 27000
+      },
+      "driver": "no",
+      "img": "Image/honda jazz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Mazda CX-3",
+      "desc": "Crossover สไตล์สปอร์ต ขับขี่คล่องตัว",
+      "prices": {
+        "daily": 1300,
+        "weekly": 7000,
+        "monthly": 22000
+      },
+      "driver": "no",
+      "img": "Image/Mazda CX-3.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mazda CX-5",
+      "desc": "SUV ขนาดกลาง หรูหรา สมรรถนะดี",
+      "prices": {
+        "daily": 1500,
+        "weekly": 9900,
+        "monthly": 39900
+      },
+      "driver": "no",
+      "img": "Image/Mazda CX-5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Mazda 2",
+      "desc": "รถเล็กประหยัด ใช้งานในเมืองคล่องตัว",
+      "prices": {
+        "daily": 900,
+        "weekly": 5900,
+        "monthly": 18900
+      },
+      "driver": "no",
+      "img": "Image/Mazda2.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Mazda 3",
+      "desc": "Sports Sedan คมสวย ขับสนุก",
+      "prices": {
+        "daily": 1000,
+        "weekly": 6650,
+        "monthly": 25000
+      },
+      "driver": "no",
+      "img": "Image/Mazda3.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Mitsubishi Pajero",
+      "desc": "SUV 7 ที่นั่ง พร้อมคนขับ เดินทางไกล",
+      "prices": {
+        "daily": 2200,
+        "weekly": 14500,
+        "monthly": 55000
+      },
+      "driver": "yes",
+      "img": "Image/mitsubishi pajero.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Nissan Juke",
+      "desc": "Crossover สไตล์ล้ำ จุดเด่นกระจังหน้า",
+      "prices": {
+        "daily": 1000,
+        "weekly": 6000,
+        "monthly": 23500
+      },
+      "driver": "no",
+      "img": "Image/nissan juke.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Nissan Sentra",
+      "desc": "ซีดานนั่งสบาย ประหยัด",
+      "prices": {
+        "daily": 1000,
+        "weekly": 6000,
+        "monthly": 27000
+      },
+      "driver": "no",
+      "img": "Image/nissan sentra.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Nissan Sylphy",
+      "desc": "ซีดานหรูหรา นั่งสบาย",
+      "prices": {
+        "daily": 890,
+        "weekly": 6500,
+        "monthly": 22700
+      },
+      "driver": "no",
+      "img": "Image/nissan sylphy.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Nissan Sylphy (พร้อมคนขับ)",
+      "desc": "ซีดานหรู พร้อมคนขับ สำหรับธุรกิจ",
+      "prices": {
+        "daily": 1000,
+        "weekly": 6000,
+        "monthly": 27000
+      },
+      "driver": "yes",
+      "img": "Image/nissan sylphy2.jpg"
+    }
+  ],
+  "tourism": [
+    {
+      "id": 1,
+      "name": "หอแก้วมุกดาหาร (Mukdahan Tower)",
+      "desc": "หอชมเมืองมุกดาหาร 360 องศา ชมวิวแม่น้ำโขงและฝั่งลาว สัญลักษณ์เมืองมุกดาหาร",
+      "province": "mukdahan",
+      "lat": 16.5445,
+      "lng": 104.7347,
+      "img": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "ตลาดอินโดจีน มุกดาหาร",
+      "desc": "ตลาดริมโขง ของฝาก OTOP สินค้าอินโดจีน ช้อปเพลินเดินชิลยามเย็น",
+      "province": "mukdahan",
+      "lat": 16.5398,
+      "lng": 104.7412,
+      "img": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "ภูผาเทิบ & ผาแต้มน้อย",
+      "desc": "อุทยานแห่งชาติภูผาเทิบ หินรูปร่างแปลกตา จุดชมวิวพระอาทิตย์ขึ้นสวยที่สุด",
+      "province": "mukdahan",
+      "lat": 16.5512,
+      "lng": 104.7344,
+      "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "สะพานมิตรภาพไทย-ลาว แห่งที่ 2",
+      "desc": "สะพานข้ามโขงเชื่อมมุกดาหาร–สะหวันนะเขต จุดถ่ายรูปแลนด์มาร์กยามเย็น",
+      "province": "mukdahan",
+      "lat": 16.5372,
+      "lng": 104.7119,
+      "img": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 5,
+      "name": "วัดพระธาตุพนมวรมหาวิหาร",
+      "desc": "พระธาตุพนม สิ่งศักดิ์สิทธิ์คู่บ้านคู่เมืองนครพนม บรรจุพระอุรังคธาตุ",
+      "province": "nakhonphanom",
+      "lat": 17.3913,
+      "lng": 104.7842,
+      "img": "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 6,
+      "name": "ถนนคนเดินริมโขง นครพนม",
+      "desc": "ถนนริมแม่น้ำโขง ชมวิวฝั่งลาว บรรยากาศยามเย็น ปั่นจักรยานชิลๆ",
+      "province": "nakhonphanom",
+      "lat": 17.3928,
+      "lng": 104.7934,
+      "img": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 7,
+      "name": "พระธาตุเรณู & พระธาตุท่าอุเทน",
+      "desc": "เส้นทางสายบุญพระธาตุประจำวันเกิด เที่ยวครบจบในวันเดียวจากตัวเมือง",
+      "province": "nakhonphanom",
+      "lat": 17.3397,
+      "lng": 104.7325,
+      "img": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80&auto=format&fit=crop"
+    },
+    {
+      "id": 8,
+      "name": "พิพิธภัณฑ์จวนผู้ว่าฯ นครพนม",
+      "desc": "บ้านพักผู้ว่าสมัยก่อน ชมประวัติศาสตร์เมืองนครพนมริมโขง",
+      "province": "nakhonphanom",
+      "lat": 17.3956,
+      "lng": 104.789,
+      "img": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80&auto=format&fit=crop"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "name": "สมชาย ใจดี",
+      "stars": 5,
+      "text": "บริการดีมาก รถสะอาด คนขับสุภาพ ราคาเป็นกันเอง จะกลับมาใช้บริการอีกครับ!",
+      "img": "",
+      "date": "2026-08-15"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "stars": 5,
+      "text": "Excellent service! The car was clean and the driver was very professional. Highly recommended!",
+      "img": "",
+      "date": "2026-07-20"
+    },
+    {
+      "id": 3,
+      "name": "วิภา วงศ์ไทย",
+      "stars": 4,
+      "text": "เช่ารถขับเอง สะดวกมาก รถสภาพดี ราคาไม่แพง ขับเที่ยวมุกดาหารสบายๆ",
+      "img": "",
+      "date": "2026-09-01"
+    }
+  ]
+}
