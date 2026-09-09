@@ -18,6 +18,8 @@
             <div class="top-controls">
                 <a href="index.html" class="top-btn" data-i18n="view_site"><i class="fas fa-eye"></i> <span data-i18n="view_site_text">ดูเว็บ</span></a>
                 <button class="top-btn" onclick="exportData()" title="Export ข้อมูลเป็นไฟล์ JSON"><i class="fas fa-file-export"></i> <span data-i18n="export_btn">Export ข้อมูล</span></button>
+                <button class="top-btn" onclick="document.getElementById('importFile').click()" title="Restore ข้อมูลจากไฟล์ JSON"><i class="fas fa-file-import"></i> <span data-i18n="import_btn">Import ข้อมูล</span></button>
+                <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importData(event)">
                 <button id="langBtn" onclick="toggleLang()">🇹🇭 TH / 🇬🇧 EN</button>
             </div>
         </div>

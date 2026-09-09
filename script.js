@@ -41,6 +41,10 @@ const translations = {
         admin_reviews: "จัดการรีวิว",
         view_site: "ดูเว็บ", view_site_text: "ดูเว็บ",
         export_btn: "Export ข้อมูล",
+        import_btn: "Import ข้อมูล",
+        confirm_import: "นำเข้าข้อมูลจะเขียนทับข้อมูลปัจจุบัน ยืนยัน?",
+        toast_imported: "นำเข้าข้อมูลเรียบร้อยแล้ว ✅",
+        toast_import_fail: "ไฟล์ไม่ถูกต้อง นำเข้าไม่ได้ ⚠️",
         stats_cars: "คัน รถให้เช่า",
         stats_places: "แห่ง สถานที่ท่องเที่ยว",
         stats_customers: "ลูกค้าที่ไว้ใจ",
@@ -114,6 +118,10 @@ const translations = {
         admin_reviews: "Manage Reviews",
         view_site: "View Site", view_site_text: "View Site",
         export_btn: "Export Data",
+        import_btn: "Import Data",
+        confirm_import: "Importing will overwrite current data. Continue?",
+        toast_imported: "Data imported ✅",
+        toast_import_fail: "Invalid file, import failed ⚠️",
         stats_places: "Tourist attractions",
         stats_customers: "Happy customers",
         stats_years: "Years of service",
@@ -299,6 +307,47 @@ function exportData() {
     URL.revokeObjectURL(url);
     try { copyText(json); } catch(e) {}
     try { showToast(translations[lang].toast_exported); } catch(e) {}
+}
+// ========== IMPORT / RESTORE จากไฟล์ JSON (เช่น 98carrent-data.json) ==========
+function importData(e) {
+    const file = e && e.target && e.target.files && e.target.files[0];
+    if (e && e.target) e.target.value = '';
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+        let payload = null;
+        try { payload = JSON.parse(ev.target.result); }
+        catch(err) { payload = null; }
+        const okCars = payload && Array.isArray(payload.cars);
+        const okTour = payload && Array.isArray(payload.tourism);
+        const okRev = payload && Array.isArray(payload.reviews);
+        if (!payload || (!okCars && !okTour && !okRev)) {
+            try { showToast(translations[lang].toast_import_fail); } catch(err) {}
+            return;
+        }
+        showConfirm(() => {
+            let saved = true;
+            if (okCars) {
+                cars = normalizeCars(payload.cars);
+                saved = setData('cars', cars) && saved;
+            }
+            if (okTour) {
+                tourismData = payload.tourism;
+                saved = setData('tourism', tourismData) && saved;
+            }
+            if (okRev) {
+                reviews = payload.reviews;
+                saved = setData('reviews', reviews) && saved;
+            }
+            if (!saved) {
+                try { showToast(translations[lang].toast_save_fail); } catch(err) {}
+                return;
+            }
+            try { renderCars(); renderTourism(); renderReviews(); } catch(err) {}
+            try { showToast(translations[lang].toast_imported); } catch(err) {}
+        }, translations[lang].confirm_import);
+    };
+    reader.readAsText(file);
 }
 
 // ========== CAR GALLERY ==========
@@ -753,12 +802,12 @@ function handleFileUpload(input, targetId) {
 }
 
 // ========== CONFIRM ==========
-function showConfirm(onYes) {
+function showConfirm(onYes, msg) {
     const overlay = document.createElement('div');
     overlay.className = 'confirm-overlay show';
     overlay.innerHTML = `
         <div class="confirm-box">
-            <p>${translations[lang].confirm_delete}</p>
+            <p>${msg || translations[lang].confirm_delete}</p>
             <div class="confirm-actions">
                 <button class="btn btn-primary btn-small" id="confirmYes">${translations[lang].btn_save}</button>
                 <button class="btn btn-danger btn-small" id="confirmNo">${translations[lang].btn_cancel}</button>
