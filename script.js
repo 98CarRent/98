@@ -16,7 +16,7 @@ const translations = {
         hero_desc: "รถเช่ามุกดาหาร รถเช่าขับเอง รถเช่าพร้อมคนขับ<br>บริการรถเช่าราคาถูก มุกดาหาร & นครพนม",
         hero_btn: "ดูรถเช่าทั้งหมด",
         hero_b1: "ขับเอง / พร้อมคนขับ", hero_b2: "รายวัน • รายสัปดาห์ • รายเดือน", hero_b3: "รับ-ส่งฟรีในเมือง",
-        rate_eyebrow: "SIMPLE PRICING", rate_title: "แพ็กเกจเรียบง่าย โปร่งใส", rate_sub: "เริ่มต้นเพียง ฿600/วัน — ยิ่งเช่ายาว ยิ่งคุ้ม",
+        rate_eyebrow: "SIMPLE PRICING", rate_title: "แพ็กเกจเรียบง่าย โปร่งใส", rate_sub: "เริ่มต้นเพียง ฿890/วัน — ยิ่งเช่ายาว ยิ่งคุ้ม",
         rate_from: " เริ่มต้น", rate_pop: "ยอดนิยม", rate_btn: "ดูรถแพ็กเกจนี้",
         rate_d_desc: "เที่ยวในเมือง ธุระด่วน 1–6 วัน",
         rate_w_desc: "ทริปยาว กลับบ้าน เที่ยวโขง 7 วันคุ้มกว่า",
@@ -95,7 +95,7 @@ const translations = {
         hero_desc: "Car Rental Mukdahan Self-drive & With Driver<br>Affordable car rental in Mukdahan & Nakhon Phanom",
         hero_btn: "View All Cars",
         hero_b1: "Self-drive / With driver", hero_b2: "Daily • Weekly • Monthly", hero_b3: "Free delivery in town",
-        rate_eyebrow: "SIMPLE PRICING", rate_title: "Simple, transparent packages", rate_sub: "From only ฿600/day — longer is cheaper",
+        rate_eyebrow: "SIMPLE PRICING", rate_title: "Simple, transparent packages", rate_sub: "From only ฿890/day — longer is cheaper",
         rate_from: " from", rate_pop: "Popular", rate_btn: "View cars",
         rate_d_desc: "City trips, errands, 1–6 days",
         rate_w_desc: "Long trips home, Mekong tour — 7 days best value",
@@ -501,6 +501,14 @@ function updateRateMin() {
         const el = document.getElementById(id);
         if (el && map[id] > 0) el.textContent = map[id].toLocaleString();
     });
+    // ข้อความ "เริ่มต้นเพียง ฿X/วัน" ใช้ราคาต่ำสุดจริง (เปลี่ยนภาษาก็อัปเดตตาม เพราะ applyLang เรียก renderCars)
+    const sub = document.querySelector('[data-i18n="rate_sub"]');
+    if (sub && map.rateDailyMin > 0) {
+        const d = map.rateDailyMin.toLocaleString();
+        sub.textContent = lang === 'th'
+            ? `เริ่มต้นเพียง ฿${d}/วัน — ยิ่งเช่ายาว ยิ่งคุ้ม`
+            : `From only ฿${d}/day — longer is cheaper`;
+    }
 }
 function filterCars(type, btn) {
     carFilter = type;
