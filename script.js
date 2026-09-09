@@ -501,14 +501,7 @@ function updateRateMin() {
         const el = document.getElementById(id);
         if (el && map[id] > 0) el.textContent = map[id].toLocaleString();
     });
-    // ข้อความ "เริ่มต้นเพียง ฿X/วัน" ใช้ราคาต่ำสุดจริง (เปลี่ยนภาษาก็อัปเดตตาม เพราะ applyLang เรียก renderCars)
-    const sub = document.querySelector('[data-i18n="rate_sub"]');
-    if (sub && map.rateDailyMin > 0) {
-        const d = map.rateDailyMin.toLocaleString();
-        sub.textContent = lang === 'th'
-            ? `เริ่มต้นเพียง ฿${d}/วัน — ยิ่งเช่ายาว ยิ่งคุ้ม`
-            : `From only ฿${d}/day — longer is cheaper`;
-    }
+    // ข้อความ "เริ่มต้นเพียง ฿X/วัน" ถูกเอาออกจากหน้าเว็บแล้ว (เหลือโค้ดไว้เผื่อใช้ซ้ำ ไม่กระทบอะไร)
 }
 function filterCars(type, btn) {
     carFilter = type;
